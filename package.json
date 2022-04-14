@@ -1,0 +1,96 @@
+{
+  "name": "inovando-desafio-oficial",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@material-ui/core": "^4.9.4",
+    "@material-ui/icons": "^4.9.1",
+    "@santospatrick/eslint-config-react": "^1.0.6",
+    "@santospatrick/prettier-config": "^1.0.1",
+    "@sentry/browser": "^5.23.0",
+    "axios": "^0.19.2",
+    "cypress": "^6.3.0",
+    "cypress-file-upload": "^5.0.2",
+    "date-fns": "^2.16.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "final-form": "^4.18.7",
+    "final-form-focus": "^1.1.2",
+    "final-form-material-ui": "^0.3.0",
+    "format-string-by-pattern": "^1.1.1",
+    "history": "^4.10.1",
+    "husky": "^4.2.3",
+    "hygen": "^6.0.4",
+    "js-brasil": "^2.2.0",
+    "json-server": "^0.16.1",
+    "lint-staged": "^10.0.7",
+    "lodash.debounce": "^4.0.8",
+    "mui-datatables": "^3.1.3",
+    "numeral": "^2.0.6",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-final-form": "^6.3.5",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^6.0.6",
+    "sanitize.css": "^11.0.0",
+    "serve": "^11.3.0",
+    "standard-version": "^8.0.0",
+    "styled-components": "^5.0.1",
+    "yup": "^0.28.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "serve": "serve -s build",
+    "build-and-serve": "yarn build && yarn serve",
+    "mock": "json-server server.js --port 3010",
+    "release": "standard-version --no-verify",
+    "generate:crud-modal": "hygen crud-modal with-prompt",
+    "generate:crud": "hygen crud with-prompt",
+    "e2e": "cypress open",
+    "e2e:chrome": "cypress run --headless --browser chrome",
+    "e2e:chromium": "cypress run --headless --browser chromium"
+  },
+  "eslintConfig": {
+    "extends": "prettier",
+    "rules": {
+      "react/display-name": "off"
+    },
+    "globals": {
+      "cy": true,
+      "context": true,
+      "Cypress": true,
+      "assert": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": "@santospatrick/prettier-config",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.29.4"
+  }
+}
